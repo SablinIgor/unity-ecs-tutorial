@@ -1,25 +1,55 @@
-﻿name: "Documentation"
+﻿name: Documentation
 
 on:
   push:
     branches:
-      - master
-  pull_request:
+      - main
 
 jobs:
-  generate_docs_job:
-    runs-on: ubuntu-latest
-    name: A job to generate docs
+  # Build the documentation
+  build:
+    runs-on: windows-latest # Required by DocFX
     steps:
-      - uses: actions/checkout@v1
-      - uses: nikeee/docfx-action@v1.0.0
-        name: Build Documentation
-        with:
-          args: Documentation/docfx.json
+      - name: Checkout
+        uses: actions/checkout@v2
+        # with:
+        #   submodules: true
 
-      # Publish generated site using GitHub Pages
-      - uses: maxheld83/ghpages@master
-        name: Publish Documentation on GitHub Pages
-        env:
-          BUILD_DIR: _site # docfx's default output directory is _site
-          GH_PAT: ${{ secrets.GH_PAT }} # See https://github.com/maxheld83/ghpages
+      - name: Install DocFX
+        run: choco install -y docfx
+
+      - name: Use README.md as index.md
+        run: cp README.md Documentation/index.md
+
+      - name: Build
+        run: docfx Documentation/docfx.json
+
+      # Upload the generated documentation
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: _site
+          path: _site # Must equals the 'build.dest' value on your docfx.json
+
+  # Deploy the generated documentation to the gh-pages branch
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        # with:
+        #   submodules: true
+
+      # Download the generated documentation
+      - name: Download site artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: _site
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_PAT }}
+          publish_branch: gh-pages
+          publish_dir: _site

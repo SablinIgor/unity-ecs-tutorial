@@ -10,16 +10,19 @@ public static class GameComponentsLookup {
 
     public const int Health = 0;
     public const int Player = 1;
+    public const int Prefab = 2;
 
-    public const int TotalComponents = 2;
+    public const int TotalComponents = 3;
 
     public static readonly string[] componentNames = {
         "Health",
-        "Player"
+        "Player",
+        "Prefab"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(HealthComponent),
-        typeof(PlayerComponent)
+        typeof(PlayerComponent),
+        typeof(PrefabComponent)
     };
 }

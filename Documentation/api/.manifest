@@ -1,0 +1,6 @@
+{
+  "Global": "Global.yml",
+  "Global.Test": "Global.Test.yml",
+  "Global.Test.NewFunc": "Global.Test.yml",
+  "Global.Test.NewFunc2": "Global.Test.yml"
+}

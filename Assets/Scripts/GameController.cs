@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
         _systems = new Systems();
         _systems.Add(new DeathSystem(contexts));
         _systems.Add(new PrefabInstantiateSystem(contexts));
+        _systems.Add(new ViewDestroySystem(contexts));
         _systems.Initialize();
 
         var entity = contexts.game.CreateEntity();

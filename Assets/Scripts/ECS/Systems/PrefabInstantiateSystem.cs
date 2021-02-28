@@ -37,7 +37,7 @@ public class PrefabInstantiateSystem : ReactiveSystem<GameEntity>
     /// <returns>Без фильтра</returns>
     protected override bool Filter(GameEntity entity)
     {
-        return true;
+        return entity.hasPrefab && !entity.hasView;
     }
 
     /// <summary>
@@ -48,10 +48,7 @@ public class PrefabInstantiateSystem : ReactiveSystem<GameEntity>
     {
         foreach (var e in entities)
         {
-            if (e.hasPrefab)
-            {
-                GameObject.Instantiate(e.prefab.prefab);
-            }
+            e.AddView(GameObject.Instantiate(e.prefab.prefab));
         }
     }
 }

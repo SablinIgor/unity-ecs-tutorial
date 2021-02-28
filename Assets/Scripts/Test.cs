@@ -30,14 +30,6 @@
         {
             Debug.Log("WWW");
         }
-        
-        /// <summary>
-        /// Update is called once per frame
-        /// </summary>
-        public void NewFunc2()
-        {
-            Debug.Log("Update!");
-        }
     }   
 //}
 

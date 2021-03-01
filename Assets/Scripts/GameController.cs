@@ -10,11 +10,6 @@ public class GameController : MonoBehaviour
 {
     private Systems _systems;
     
-    /// <summary>
-    /// Ссылка на prefab для игрока
-    /// </summary>
-    public GameObject playerPrefab;
-    
     private void Awake()
     {
         var contexts = Contexts.sharedInstance;
@@ -25,13 +20,6 @@ public class GameController : MonoBehaviour
         _systems.Add(new ViewDestroySystem(contexts));
         _systems.Add(new TransformApplySystem(contexts));
         _systems.Initialize();
-
-        var entity = contexts.game.CreateEntity();
-        entity.isPlayer = true;
-        entity.AddHealth(100.0f);
-        entity.AddPrefab(playerPrefab);
-        entity.AddPosition(new Vector2(0.0f, 0.0f));
-        entity.AddRotation(30.0f);
     }
 
     private void OnDestroy()

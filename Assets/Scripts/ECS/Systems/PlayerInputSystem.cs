@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Entitas;
+﻿using Entitas;
 using UnityEngine;
 
 /// <summary>
@@ -11,11 +8,14 @@ public class PlayerInputSystem : IExecuteSystem
 {
     private const float MoveSpeed = 10.0f;
     private const float RotateSpeed = 120.0f;
+    private const float ShotSpeed = 20.0f;
 
+    private Contexts _contexts;
     private IGroup<GameEntity> entities;
 
     public PlayerInputSystem(Contexts contexts)
     {
+        this._contexts = contexts;
         entities = contexts.game.GetGroup(GameMatcher.Player);
     }
 
@@ -51,6 +51,21 @@ public class PlayerInputSystem : IExecuteSystem
             
             if (!Mathf.Approximately(rotationDelta, 0.0f))
                 e.ReplaceRotation(e.rotation.angle + rotationDelta * RotateSpeed * Time.deltaTime);
+            
+            // shooting
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                var angle = e.rotation.angle * Mathf.Deg2Rad;
+                var dir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+
+                var entity = _contexts.game.CreateEntity();
+                entity.isShot = true;
+                entity.AddPosition(e.position.value + dir);
+                entity.AddRotation(e.rotation.angle);
+                entity.AddPrefab(_contexts.game.globals.shotPrefab);
+                entity.AddForwardMovement(ShotSpeed);
+            }
         }
     }
 }

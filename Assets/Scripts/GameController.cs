@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
         _systems.Add(new DeathSystem(contexts));
         _systems.Add(new PrefabInstantiateSystem(contexts));
         _systems.Add(new ViewDestroySystem(contexts));
+        _systems.Add(new PlayerInputSystem(contexts));
         _systems.Add(new TransformApplySystem(contexts));
         _systems.Initialize();
     }

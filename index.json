@@ -1,0 +1,172 @@
+{
+  "api/Global.AbstractEntity.html": {
+    "href": "api/Global.AbstractEntity.html",
+    "title": "Class AbstractEntity | Example Unity documentation",
+    "keywords": "Class AbstractEntity Родительский класс всех entities Inheritance Object AbstractEntity PlayerEntity Namespace : Global Assembly : cs.temp.dll.dll Syntax public abstract class AbstractEntity : MonoBehaviour Properties _contexts Доступ к контексту Declaration protected Contexts _contexts { get; } Property Value Type Description Contexts entity Declaration protected GameEntity entity { get; } Property Value Type Description GameEntity Methods Start() Создание entity c указанием позиции и поворота Declaration protected virtual void Start()"
+  },
+  "api/Global.Contexts.html": {
+    "href": "api/Global.Contexts.html",
+    "title": "Class Contexts | Example Unity documentation",
+    "keywords": "Class Contexts Inheritance Object Contexts Namespace : Global Assembly : cs.temp.dll.dll Syntax public class Contexts : Entitas.IContexts Constructors Contexts() Declaration public Contexts() Properties allContexts Declaration public Entitas.IContext[] allContexts { get; } Property Value Type Description Entitas.IContext [] game Declaration public GameContext game { get; set; } Property Value Type Description GameContext input Declaration public InputContext input { get; set; } Property Value Type Description InputContext sharedInstance Declaration public static Contexts sharedInstance { get; set; } Property Value Type Description Contexts Methods Reset() Declaration public void Reset()"
+  },
+  "api/Global.DeathSystem.html": {
+    "href": "api/Global.DeathSystem.html",
+    "title": "Class DeathSystem | Example Unity documentation",
+    "keywords": "Class DeathSystem Система реализации смерти. При уменьшении показателя здоровья до нуля или ниже entity должно быть уничтожено Inheritance Object DeathSystem Namespace : Global Assembly : cs.temp.dll.dll Syntax public class DeathSystem : IExecuteSystem Constructors DeathSystem(Contexts) Поиск entities с компонентом Health Declaration public DeathSystem(Contexts contexts) Parameters Type Name Description Contexts contexts Methods Execute() Уничтожение entity с показателем здоровья меньше или равным нулю Declaration public void Execute()"
+  },
+  "api/Global.Feature.html": {
+    "href": "api/Global.Feature.html",
+    "title": "Class Feature | Example Unity documentation",
+    "keywords": "Class Feature Inheritance Object Feature Namespace : Global Assembly : cs.temp.dll.dll Syntax public class Feature : Entitas.Systems Constructors Feature() Declaration public Feature() Feature(String) Declaration public Feature(string name) Parameters Type Name Description String name"
+  },
+  "api/Global.ForwardMovementComponent.html": {
+    "href": "api/Global.ForwardMovementComponent.html",
+    "title": "Class ForwardMovementComponent | Example Unity documentation",
+    "keywords": "Class ForwardMovementComponent Компонент, обозначающий автоматическое движение вперед. Inheritance Object ForwardMovementComponent Namespace : Global Assembly : cs.temp.dll.dll Syntax public class ForwardMovementComponent : IComponent Fields speed Скорость движения Declaration public float speed Field Value Type Description Single"
+  },
+  "api/Global.ForwardMovementSystem.html": {
+    "href": "api/Global.ForwardMovementSystem.html",
+    "title": "Class ForwardMovementSystem | Example Unity documentation",
+    "keywords": "Class ForwardMovementSystem Система управлением движения вперед Inheritance Object ForwardMovementSystem Namespace : Global Assembly : cs.temp.dll.dll Syntax public class ForwardMovementSystem : IExecuteSystem Constructors ForwardMovementSystem(Contexts) Выбираем все entity с тремя компонентами: ForwardMovement, Position, Rotation Declaration public ForwardMovementSystem(Contexts contexts) Parameters Type Name Description Contexts contexts Methods Execute() Вычисляем координаты для движения вперед Declaration public void Execute()"
+  },
+  "api/Global.GameAttribute.html": {
+    "href": "api/Global.GameAttribute.html",
+    "title": "Class GameAttribute | Example Unity documentation",
+    "keywords": "Class GameAttribute Inheritance Object GameAttribute Namespace : Global Assembly : cs.temp.dll.dll Syntax public sealed class GameAttribute : Entitas.CodeGeneration.Attributes.ContextAttribute Constructors GameAttribute() Declaration public GameAttribute()"
+  },
+  "api/Global.GameComponentsLookup.html": {
+    "href": "api/Global.GameComponentsLookup.html",
+    "title": "Class GameComponentsLookup | Example Unity documentation",
+    "keywords": "Class GameComponentsLookup Inheritance Object GameComponentsLookup Inherited Members Object.Equals(Object) Object.Equals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Object.ToString() Object.ReferenceEquals(Object, Object) Namespace : Global Assembly : cs.temp.dll.dll Syntax public static class GameComponentsLookup Fields componentNames Declaration public static readonly string[] componentNames Field Value Type Description String [] componentTypes Declaration public static readonly Type[] componentTypes Field Value Type Description Type [] ForwardMovement Declaration public const int ForwardMovement = 0 Field Value Type Description Int32 Globals Declaration public const int Globals = 1 Field Value Type Description Int32 Health Declaration public const int Health = 2 Field Value Type Description Int32 Player Declaration public const int Player = 3 Field Value Type Description Int32 Position Declaration public const int Position = 4 Field Value Type Description Int32 Prefab Declaration public const int Prefab = 5 Field Value Type Description Int32 Rotation Declaration public const int Rotation = 6 Field Value Type Description Int32 Shot Declaration public const int Shot = 7 Field Value Type Description Int32 TotalComponents Declaration public const int TotalComponents = 9 Field Value Type Description Int32 View Declaration public const int View = 8 Field Value Type Description Int32"
+  },
+  "api/Global.GameContext.html": {
+    "href": "api/Global.GameContext.html",
+    "title": "Class GameContext | Example Unity documentation",
+    "keywords": "Class GameContext Inheritance Object GameContext Namespace : Global Assembly : cs.temp.dll.dll Syntax public sealed class GameContext : Entitas.Context<GameEntity> Constructors GameContext() Declaration public GameContext() Properties globals Declaration public GlobalsComponent globals { get; } Property Value Type Description GlobalsComponent globalsEntity Declaration public GameEntity globalsEntity { get; } Property Value Type Description GameEntity hasGlobals Declaration public bool hasGlobals { get; } Property Value Type Description Boolean Methods RemoveGlobals() Declaration public void RemoveGlobals() ReplaceGlobals(UnityEngine.GameObject) Declaration public void ReplaceGlobals(UnityEngine.GameObject newShotPrefab) Parameters Type Name Description UnityEngine.GameObject newShotPrefab SetGlobals(UnityEngine.GameObject) Declaration public GameEntity SetGlobals(UnityEngine.GameObject newShotPrefab) Parameters Type Name Description UnityEngine.GameObject newShotPrefab Returns Type Description GameEntity"
+  },
+  "api/Global.GameController.html": {
+    "href": "api/Global.GameController.html",
+    "title": "Class GameController | Example Unity documentation",
+    "keywords": "Class GameController Контроллер игры Подключение систем ECS Inheritance Object GameController Namespace : Global Assembly : cs.temp.dll.dll Syntax public class GameController : MonoBehaviour Fields shotPrefab Declaration public GameObject shotPrefab Field Value Type Description GameObject"
+  },
+  "api/Global.GameEntity.html": {
+    "href": "api/Global.GameEntity.html",
+    "title": "Class GameEntity | Example Unity documentation",
+    "keywords": "Class GameEntity Inheritance Object GameEntity Namespace : Global Assembly : cs.temp.dll.dll Syntax public sealed class GameEntity : Entitas.Entity Properties forwardMovement Declaration public ForwardMovementComponent forwardMovement { get; } Property Value Type Description ForwardMovementComponent globals Declaration public GlobalsComponent globals { get; } Property Value Type Description GlobalsComponent hasForwardMovement Declaration public bool hasForwardMovement { get; } Property Value Type Description Boolean hasGlobals Declaration public bool hasGlobals { get; } Property Value Type Description Boolean hasHealth Declaration public bool hasHealth { get; } Property Value Type Description Boolean hasPosition Declaration public bool hasPosition { get; } Property Value Type Description Boolean hasPrefab Declaration public bool hasPrefab { get; } Property Value Type Description Boolean hasRotation Declaration public bool hasRotation { get; } Property Value Type Description Boolean hasView Declaration public bool hasView { get; } Property Value Type Description Boolean health Declaration public HealthComponent health { get; } Property Value Type Description HealthComponent isPlayer Declaration public bool isPlayer { get; set; } Property Value Type Description Boolean isShot Declaration public bool isShot { get; set; } Property Value Type Description Boolean position Declaration public PositionComponent position { get; } Property Value Type Description PositionComponent prefab Declaration public PrefabComponent prefab { get; } Property Value Type Description PrefabComponent rotation Declaration public RotationComponent rotation { get; } Property Value Type Description RotationComponent view Declaration public ViewComponent view { get; } Property Value Type Description ViewComponent Methods AddForwardMovement(Single) Declaration public void AddForwardMovement(float newSpeed) Parameters Type Name Description Single newSpeed AddGlobals(UnityEngine.GameObject) Declaration public void AddGlobals(UnityEngine.GameObject newShotPrefab) Parameters Type Name Description UnityEngine.GameObject newShotPrefab AddHealth(Single) Declaration public void AddHealth(float newValue) Parameters Type Name Description Single newValue AddPosition(UnityEngine.Vector2) Declaration public void AddPosition(UnityEngine.Vector2 newValue) Parameters Type Name Description UnityEngine.Vector2 newValue AddPrefab(UnityEngine.GameObject) Declaration public void AddPrefab(UnityEngine.GameObject newPrefab) Parameters Type Name Description UnityEngine.GameObject newPrefab AddRotation(Single) Declaration public void AddRotation(float newAngle) Parameters Type Name Description Single newAngle AddView(UnityEngine.GameObject) Declaration public void AddView(UnityEngine.GameObject newGameObject) Parameters Type Name Description UnityEngine.GameObject newGameObject RemoveForwardMovement() Declaration public void RemoveForwardMovement() RemoveGlobals() Declaration public void RemoveGlobals() RemoveHealth() Declaration public void RemoveHealth() RemovePosition() Declaration public void RemovePosition() RemovePrefab() Declaration public void RemovePrefab() RemoveRotation() Declaration public void RemoveRotation() RemoveView() Declaration public void RemoveView() ReplaceForwardMovement(Single) Declaration public void ReplaceForwardMovement(float newSpeed) Parameters Type Name Description Single newSpeed ReplaceGlobals(UnityEngine.GameObject) Declaration public void ReplaceGlobals(UnityEngine.GameObject newShotPrefab) Parameters Type Name Description UnityEngine.GameObject newShotPrefab ReplaceHealth(Single) Declaration public void ReplaceHealth(float newValue) Parameters Type Name Description Single newValue ReplacePosition(UnityEngine.Vector2) Declaration public void ReplacePosition(UnityEngine.Vector2 newValue) Parameters Type Name Description UnityEngine.Vector2 newValue ReplacePrefab(UnityEngine.GameObject) Declaration public void ReplacePrefab(UnityEngine.GameObject newPrefab) Parameters Type Name Description UnityEngine.GameObject newPrefab ReplaceRotation(Single) Declaration public void ReplaceRotation(float newAngle) Parameters Type Name Description Single newAngle ReplaceView(UnityEngine.GameObject) Declaration public void ReplaceView(UnityEngine.GameObject newGameObject) Parameters Type Name Description UnityEngine.GameObject newGameObject"
+  },
+  "api/Global.GameMatcher.html": {
+    "href": "api/Global.GameMatcher.html",
+    "title": "Class GameMatcher | Example Unity documentation",
+    "keywords": "Class GameMatcher Inheritance Object GameMatcher Inherited Members Object.Equals(Object) Object.Equals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Object.ToString() Object.ReferenceEquals(Object, Object) Namespace : Global Assembly : cs.temp.dll.dll Syntax public sealed class GameMatcher Properties ForwardMovement Declaration public static Entitas.IMatcher<GameEntity> ForwardMovement { get; } Property Value Type Description Entitas.IMatcher < GameEntity > Globals Declaration public static Entitas.IMatcher<GameEntity> Globals { get; } Property Value Type Description Entitas.IMatcher < GameEntity > Health Declaration public static Entitas.IMatcher<GameEntity> Health { get; } Property Value Type Description Entitas.IMatcher < GameEntity > Player Declaration public static Entitas.IMatcher<GameEntity> Player { get; } Property Value Type Description Entitas.IMatcher < GameEntity > Position Declaration public static Entitas.IMatcher<GameEntity> Position { get; } Property Value Type Description Entitas.IMatcher < GameEntity > Prefab Declaration public static Entitas.IMatcher<GameEntity> Prefab { get; } Property Value Type Description Entitas.IMatcher < GameEntity > Rotation Declaration public static Entitas.IMatcher<GameEntity> Rotation { get; } Property Value Type Description Entitas.IMatcher < GameEntity > Shot Declaration public static Entitas.IMatcher<GameEntity> Shot { get; } Property Value Type Description Entitas.IMatcher < GameEntity > View Declaration public static Entitas.IMatcher<GameEntity> View { get; } Property Value Type Description Entitas.IMatcher < GameEntity > Methods AllOf(Entitas.IMatcher<GameEntity>[]) Declaration public static Entitas.IAllOfMatcher<GameEntity> AllOf(params Entitas.IMatcher<GameEntity>[] matchers) Parameters Type Name Description Entitas.IMatcher < GameEntity >[] matchers Returns Type Description Entitas.IAllOfMatcher < GameEntity > AllOf(Int32[]) Declaration public static Entitas.IAllOfMatcher<GameEntity> AllOf(params int[] indices) Parameters Type Name Description Int32 [] indices Returns Type Description Entitas.IAllOfMatcher < GameEntity > AnyOf(Entitas.IMatcher<GameEntity>[]) Declaration public static Entitas.IAnyOfMatcher<GameEntity> AnyOf(params Entitas.IMatcher<GameEntity>[] matchers) Parameters Type Name Description Entitas.IMatcher < GameEntity >[] matchers Returns Type Description Entitas.IAnyOfMatcher < GameEntity > AnyOf(Int32[]) Declaration public static Entitas.IAnyOfMatcher<GameEntity> AnyOf(params int[] indices) Parameters Type Name Description Int32 [] indices Returns Type Description Entitas.IAnyOfMatcher < GameEntity >"
+  },
+  "api/Global.GlobalsComponent.html": {
+    "href": "api/Global.GlobalsComponent.html",
+    "title": "Class GlobalsComponent | Example Unity documentation",
+    "keywords": "Class GlobalsComponent Компонент-синглтон (контекста) для хранения глобальных значений Inheritance Object GlobalsComponent Namespace : Global Assembly : cs.temp.dll.dll Syntax public class GlobalsComponent : IComponent Fields shotPrefab Declaration public GameObject shotPrefab Field Value Type Description GameObject"
+  },
+  "api/Global.HealthComponent.html": {
+    "href": "api/Global.HealthComponent.html",
+    "title": "Class HealthComponent | Example Unity documentation",
+    "keywords": "Class HealthComponent Компонент отвечающий за показатель здоровья Inheritance Object HealthComponent Namespace : Global Assembly : cs.temp.dll.dll Syntax public class HealthComponent : IComponent Fields value Показатель здоровья Declaration public float value Field Value Type Description Single"
+  },
+  "api/Global.html": {
+    "href": "api/Global.html",
+    "title": "Namespace Global | Example Unity documentation",
+    "keywords": "Namespace Global Classes AbstractEntity Родительский класс всех entities Contexts DeathSystem Система реализации смерти. При уменьшении показателя здоровья до нуля или ниже entity должно быть уничтожено Feature ForwardMovementComponent Компонент, обозначающий автоматическое движение вперед. ForwardMovementSystem Система управлением движения вперед GameAttribute GameComponentsLookup GameContext GameController Контроллер игры Подключение систем ECS GameEntity GameMatcher GlobalsComponent Компонент-синглтон (контекста) для хранения глобальных значений HealthComponent Компонент отвечающий за показатель здоровья InputAttribute InputComponentsLookup InputContext InputEntity InputMatcher PlayerComponent Компонент игрока PlayerEntity PlayerInputSystem Система управления для игрока PositionComponent Компонент позиционирования на сцене PrefabComponent Компонент для привязки prefab-а к entity PrefabInstantiateSystem Реактивная система привязки prefab к entity RotationComponent Компонент угла направления движения на сцене ShotComponent Компонент - пуля TransformApplySystem Система изменения координат и угла направления ViewComponent Компонент объекта на сцене ViewDestroySystem Система удаление GameObject со сцены"
+  },
+  "api/Global.InputAttribute.html": {
+    "href": "api/Global.InputAttribute.html",
+    "title": "Class InputAttribute | Example Unity documentation",
+    "keywords": "Class InputAttribute Inheritance Object InputAttribute Namespace : Global Assembly : cs.temp.dll.dll Syntax public sealed class InputAttribute : Entitas.CodeGeneration.Attributes.ContextAttribute Constructors InputAttribute() Declaration public InputAttribute()"
+  },
+  "api/Global.InputComponentsLookup.html": {
+    "href": "api/Global.InputComponentsLookup.html",
+    "title": "Class InputComponentsLookup | Example Unity documentation",
+    "keywords": "Class InputComponentsLookup Inheritance Object InputComponentsLookup Inherited Members Object.Equals(Object) Object.Equals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Object.ToString() Object.ReferenceEquals(Object, Object) Namespace : Global Assembly : cs.temp.dll.dll Syntax public static class InputComponentsLookup Fields componentNames Declaration public static readonly string[] componentNames Field Value Type Description String [] componentTypes Declaration public static readonly Type[] componentTypes Field Value Type Description Type [] TotalComponents Declaration public const int TotalComponents = 0 Field Value Type Description Int32"
+  },
+  "api/Global.InputContext.html": {
+    "href": "api/Global.InputContext.html",
+    "title": "Class InputContext | Example Unity documentation",
+    "keywords": "Class InputContext Inheritance Object InputContext Namespace : Global Assembly : cs.temp.dll.dll Syntax public sealed class InputContext : Entitas.Context<InputEntity> Constructors InputContext() Declaration public InputContext()"
+  },
+  "api/Global.InputEntity.html": {
+    "href": "api/Global.InputEntity.html",
+    "title": "Class InputEntity | Example Unity documentation",
+    "keywords": "Class InputEntity Inheritance Object InputEntity Namespace : Global Assembly : cs.temp.dll.dll Syntax public sealed class InputEntity : Entitas.Entity"
+  },
+  "api/Global.InputMatcher.html": {
+    "href": "api/Global.InputMatcher.html",
+    "title": "Class InputMatcher | Example Unity documentation",
+    "keywords": "Class InputMatcher Inheritance Object InputMatcher Inherited Members Object.Equals(Object) Object.Equals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Object.ToString() Object.ReferenceEquals(Object, Object) Namespace : Global Assembly : cs.temp.dll.dll Syntax public sealed class InputMatcher Methods AllOf(Entitas.IMatcher<InputEntity>[]) Declaration public static Entitas.IAllOfMatcher<InputEntity> AllOf(params Entitas.IMatcher<InputEntity>[] matchers) Parameters Type Name Description Entitas.IMatcher < InputEntity >[] matchers Returns Type Description Entitas.IAllOfMatcher < InputEntity > AllOf(Int32[]) Declaration public static Entitas.IAllOfMatcher<InputEntity> AllOf(params int[] indices) Parameters Type Name Description Int32 [] indices Returns Type Description Entitas.IAllOfMatcher < InputEntity > AnyOf(Entitas.IMatcher<InputEntity>[]) Declaration public static Entitas.IAnyOfMatcher<InputEntity> AnyOf(params Entitas.IMatcher<InputEntity>[] matchers) Parameters Type Name Description Entitas.IMatcher < InputEntity >[] matchers Returns Type Description Entitas.IAnyOfMatcher < InputEntity > AnyOf(Int32[]) Declaration public static Entitas.IAnyOfMatcher<InputEntity> AnyOf(params int[] indices) Parameters Type Name Description Int32 [] indices Returns Type Description Entitas.IAnyOfMatcher < InputEntity >"
+  },
+  "api/Global.PlayerComponent.html": {
+    "href": "api/Global.PlayerComponent.html",
+    "title": "Class PlayerComponent | Example Unity documentation",
+    "keywords": "Class PlayerComponent Компонент игрока Inheritance Object PlayerComponent Namespace : Global Assembly : cs.temp.dll.dll Syntax public class PlayerComponent : IComponent"
+  },
+  "api/Global.PlayerEntity.html": {
+    "href": "api/Global.PlayerEntity.html",
+    "title": "Class PlayerEntity | Example Unity documentation",
+    "keywords": "Class PlayerEntity Inheritance Object AbstractEntity PlayerEntity Inherited Members AbstractEntity._contexts AbstractEntity.entity Namespace : Global Assembly : cs.temp.dll.dll Syntax public class PlayerEntity : AbstractEntity Fields health Declaration public float health Field Value Type Description Single playerPrefab Declaration public GameObject playerPrefab Field Value Type Description GameObject Methods Start() Declaration protected override void Start() Overrides AbstractEntity.Start()"
+  },
+  "api/Global.PlayerInputSystem.html": {
+    "href": "api/Global.PlayerInputSystem.html",
+    "title": "Class PlayerInputSystem | Example Unity documentation",
+    "keywords": "Class PlayerInputSystem Система управления для игрока Inheritance Object PlayerInputSystem Namespace : Global Assembly : cs.temp.dll.dll Syntax public class PlayerInputSystem : IExecuteSystem Constructors PlayerInputSystem(Contexts) Declaration public PlayerInputSystem(Contexts contexts) Parameters Type Name Description Contexts contexts Methods Execute() Считываем нажатия WASD и изменяем положение \"игрока\" Declaration public void Execute()"
+  },
+  "api/Global.PositionComponent.html": {
+    "href": "api/Global.PositionComponent.html",
+    "title": "Class PositionComponent | Example Unity documentation",
+    "keywords": "Class PositionComponent Компонент позиционирования на сцене Inheritance Object PositionComponent Namespace : Global Assembly : cs.temp.dll.dll Syntax public class PositionComponent : IComponent Fields value Координаты позиции на сцене Declaration public Vector2 value Field Value Type Description Vector2"
+  },
+  "api/Global.PrefabComponent.html": {
+    "href": "api/Global.PrefabComponent.html",
+    "title": "Class PrefabComponent | Example Unity documentation",
+    "keywords": "Class PrefabComponent Компонент для привязки prefab-а к entity Inheritance Object PrefabComponent Namespace : Global Assembly : cs.temp.dll.dll Syntax public class PrefabComponent : IComponent Fields prefab Ссылка на prefab Declaration public GameObject prefab Field Value Type Description GameObject"
+  },
+  "api/Global.PrefabInstantiateSystem.html": {
+    "href": "api/Global.PrefabInstantiateSystem.html",
+    "title": "Class PrefabInstantiateSystem | Example Unity documentation",
+    "keywords": "Class PrefabInstantiateSystem Реактивная система привязки prefab к entity Inheritance Object PrefabInstantiateSystem Namespace : Global Assembly : cs.temp.dll.dll Syntax public class PrefabInstantiateSystem : ReactiveSystem<GameEntity> Constructors PrefabInstantiateSystem(Contexts) Конструктор Declaration public PrefabInstantiateSystem(Contexts contexts) Parameters Type Name Description Contexts contexts Контекст игры Methods Execute(List<GameEntity>) Обработка списка изменившихся entities Declaration protected override void Execute(List<GameEntity> entities) Parameters Type Name Description List < GameEntity > entities Список entities Filter(GameEntity) Дополнительные условия отбора entity Declaration protected override bool Filter(GameEntity entity) Parameters Type Name Description GameEntity entity Entity на проверку Returns Type Description Boolean Без фильтра GetTrigger(IContext<GameEntity>) Реагируем на изменение entity с компонентом Prefab Declaration protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context) Parameters Type Name Description IContext < GameEntity > context Контекст игры Returns Type Description ICollector < GameEntity >"
+  },
+  "api/Global.RotationComponent.html": {
+    "href": "api/Global.RotationComponent.html",
+    "title": "Class RotationComponent | Example Unity documentation",
+    "keywords": "Class RotationComponent Компонент угла направления движения на сцене Inheritance Object RotationComponent Namespace : Global Assembly : cs.temp.dll.dll Syntax public class RotationComponent : IComponent Fields angle Угол направления движения Declaration public float angle Field Value Type Description Single"
+  },
+  "api/Global.ShotComponent.html": {
+    "href": "api/Global.ShotComponent.html",
+    "title": "Class ShotComponent | Example Unity documentation",
+    "keywords": "Class ShotComponent Компонент - пуля Inheritance Object ShotComponent Namespace : Global Assembly : cs.temp.dll.dll Syntax public class ShotComponent : IComponent"
+  },
+  "api/Global.TransformApplySystem.html": {
+    "href": "api/Global.TransformApplySystem.html",
+    "title": "Class TransformApplySystem | Example Unity documentation",
+    "keywords": "Class TransformApplySystem Система изменения координат и угла направления Inheritance Object TransformApplySystem Namespace : Global Assembly : cs.temp.dll.dll Syntax public class TransformApplySystem : ReactiveSystem<GameEntity> Constructors TransformApplySystem(Contexts) Declaration public TransformApplySystem(Contexts contexts) Parameters Type Name Description Contexts contexts Methods Execute(List<GameEntity>) Declaration protected override void Execute(List<GameEntity> entities) Parameters Type Name Description List < GameEntity > entities Filter(GameEntity) Declaration protected override bool Filter(GameEntity entity) Parameters Type Name Description GameEntity entity Returns Type Description Boolean GetTrigger(IContext<GameEntity>) Реакция на ситуацию, когда используется либо компонент Position или Rotation или есть компонент View Declaration protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context) Parameters Type Name Description IContext < GameEntity > context Контекст игры Returns Type Description ICollector < GameEntity > Список измененных компоннетов"
+  },
+  "api/Global.ViewComponent.html": {
+    "href": "api/Global.ViewComponent.html",
+    "title": "Class ViewComponent | Example Unity documentation",
+    "keywords": "Class ViewComponent Компонент объекта на сцене Inheritance Object ViewComponent Namespace : Global Assembly : cs.temp.dll.dll Syntax public class ViewComponent : IComponent Fields gameObject Ссылка на объект Declaration public GameObject gameObject Field Value Type Description GameObject"
+  },
+  "api/Global.ViewDestroySystem.html": {
+    "href": "api/Global.ViewDestroySystem.html",
+    "title": "Class ViewDestroySystem | Example Unity documentation",
+    "keywords": "Class ViewDestroySystem Система удаление GameObject со сцены Inheritance Object ViewDestroySystem Implements ITearDownSystem Namespace : Global Assembly : cs.temp.dll.dll Syntax public class ViewDestroySystem : IInitializeSystem, ITearDownSystem Constructors ViewDestroySystem(Contexts) Выбираем entities с компонентом View Declaration public ViewDestroySystem(Contexts contexts) Parameters Type Name Description Contexts contexts Контекст игры Methods Initialize() Подписка на событие удаления entity Declaration public void Initialize() TearDown() Отписываемся от события после обработки Declaration public void TearDown() Implements ITearDownSystem"
+  },
+  "index.html": {
+    "href": "index.html",
+    "title": "This is the HOMEPAGE. | Example Unity documentation",
+    "keywords": "This is the HOMEPAGE . Refer to Markdown for how to write markdown files. Quick Start Notes: Add images to the images folder if the file is referencing an image."
+  },
+  "manual/coniunctis.html": {
+    "href": "manual/coniunctis.html",
+    "title": "Coniunctis nec qui et lanient monticolae vitae | Example Unity documentation",
+    "keywords": "Coniunctis nec qui et lanient monticolae vitae Opem ille Lorem markdownum cavis exululat inutile. Illi quem caeli, vola patruo difficili Iuppiter Patraeque, est ardebant ingeniis Troica intus Amore tibi mirantem superfusis, multum. Ut Achilles Et sitim Tibi modo ait temptant crinita daret Pariter in removi offensasque Lenaeo damno terra Phoebes ut damnosa classis ignes templo; tua ulla capillos ultima. Videre percusso plectro templa fuit diva minimum debere, quid nomen Philomela animis. Verbis istis flagrat vulnera inpediique ignes. Gravi filo obvius arte Amphionis Panes emisitque iubet. Latona te timens Latentia ante, eundem meritorum sunto ! Elige in timuit templa ferrea, qui arma ligati stagnum turbant. Fraternaque aeternus, dedisse, naufragus corripiens ranas Amathunta et quod laetior culpa nec semper scorpius fuit vicem corpora ardere. Fallit in artus primordia, fratres per aliis , ipsi manu Asiae quod marmorea . mountain(googleVga, pngIphone); var radcabBitrate = dnsCronRecursion; gui(2); ipImageAix += vle(drm_cisc, horizontal + computer_key); jre(vaporware_adc_multi); Lumina ut tamen praesentia vidistis nymphae auroque Bromumque in portant furorem. Visa init resurgere praevitiat canibus et, dedignata turea, ilia. Pisenore mensura insula aere nec per o gladium causa: Alcidae. Veris sentes pallet, alta melius nostra amborum probant, deam. Iuventae dedimus nitidaque hunc traxisse sermonibus pectine flecti an pateres, hac ore gelidis foret semper. Sithon pelle. Bracchia Hippason videntur fateri hosti: palpitat animo est reliquit anne nam confusaque. Interea rex altis munera quem quae quoque rorant, rauco albescere scopulo moriensque parvo, pectus illa, quadrupedes. Notavit haec. Vertit pars quem Euryte casu usta iterum! Ablatum pectus corripiunt neu humus tamquam; ducens stellarum amore. Pulsisque latet, ad tamen victor fulva Tirynthius posco; qui inque in poena quidem enses !"
+  },
+  "manual/etiam.html": {
+    "href": "manual/etiam.html",
+    "title": "Etiam nantemque exul | Example Unity documentation",
+    "keywords": "Etiam nantemque exul Cum tulit Lorem markdownum quos stimulosque altos . Putat nubes molle Troiae vero dea; nostraque plurima . Vos de mihi, credidit: salibus et iacuit, volvitur sunt unda fronti deriguisse refert . Sumpsisse viso Nubila nomine. Purpura se o et causa parva ripas, adsonat saevaque; quid modo ambo et venere voveo. Sine et esse, illa tempore, sive tibi roseo, ministerio altos. Trepident medicamine, primasque cum et peregit dapibusque quoslibet hominis quoque insula. Tepentibus ut Cecropios ab turba, est auro ferventi aliter duratos feres differtis Ausoniis potes, non noctis Laertaque iuvenes. Caelumque vestigia Et promissa fila sentiet leges; Phrygiae et levatus ferire? Salutifer coniugis fierent ante fecissent post vultumque ultima, per radios currere; tandem. Fuerat qua, ne foedera reformatus nunc diu dea audet nonne. Ut utinam mitia tenuerunt movent spectans Mavortis nulla ite, somnos exsiccata dixit Aeetias. Binas Trinacriam album ex ipse. Quoque una utraque tardius placetque gerere; mariti sed dare ludunt memorante Delphice corpora. Caret quantum intellegat venis gaudent eurus. Et suos crista; has et ferarum quid audit omine; mea cum praemia quae duris, suspicor. Adflati qui Spiro conata supprimit diemque; ora oblitus ensem alti non quo lacrimis ferunt, ageret Cebrenida rutilis delendaque? Terras lata modus: nec fas, misi utque adpositis Iunonis. Fide vidit, ferox Schoeneia mundi, voce, tellus pariterque pedum, sic Celadon securior corpora partesque posito. Potest faxo unda pendulaque ille rostro, haesit pars: formidine captat, viseret simulaverat! Sequi est peragit flumineae pallent simulatas formae avulsa, imagine undis; formam. Et nec sed adeunt, huic aequa et ignes nec, medere terram. Move ipsum abnuat retemptat retinebat duabus diu Iovi est pluma. Tecum non deducit Pelops Inachus: arcet aliquemque, regia telo. Tollens altore nec semel qui voce Palatinae Apertis et dei duo inquit ; luna secundo, fervida terret. In haec dextra septima Tydides tibi: congelat hospes nativum radice tegumenque membris Hesperio ne Libys, est vocabula siqua. Dumque stet mulces , ut fontem dea atricolor, est pronos, clarissimus poterat cum intrare sidere templi. cut_metadata(whitelistSequenceUnit.thick.of_bezel_cdma( address_suffix_troubleshooting), sram_trojan(4, hdmi_network - 1)); flash.apache -= web_gps_plug; if (offline.dac_bridge(scrollEbookRom, parameter.internal_target_superscalar(2)) < qwerty + 2 - ipvCgiContextual) { certificateIdeAsp = overclocking + app; supplyCard = siteRaster; } Sagitta curvum quoque petisti opibusque proximitas in, illa vestrum, mihi domum nescia flexit sacra in. Magni vive sim crescente causam saxo voluit, mens, quod. Tela ter ulterius similis illos nato refugit ait verbaque nec fatigatum penates iaculatricemque cecidit pinnas, cum. Misso contigit caelo dedissent lumina; nympha ad vobis occidat, malo sacra utrumque cunctos Diomedeos addita. Virgineus autumnos, ait mitissima curru: fuit sed fessi se habebat hactenus Ultor; meus."
+  }
+}
